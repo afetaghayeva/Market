@@ -1,0 +1,28 @@
+﻿@model ProductListViewModel
+
+<h3>Products</h3>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Unit Price</th>
+        <th>QuantityPerUnit</th>
+        <th>Stock Amount</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model.Product)
+        {
+            <tr>
+                <td>@product.ProductId</td>
+                <td>@product.ProductName</td>
+                <td>@product.UnitPrice</td>
+                <td>@product.QuantityPerUnit</td>
+                <td>@product.UnitsInStock</td>
+                <td><a class="btn btn-sm btn-success"asp-controller="Cart"asp-action="AddToCart"asp-route-productId="@product.ProductId">Add</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

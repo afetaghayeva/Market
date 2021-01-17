@@ -1,0 +1,22 @@
+﻿@model CategoryListViewModel
+
+<h3>Categories</h3>
+<div class="list-group">
+    @{
+        string classNameOfAllProducts = "list-group-item";
+        if (Model.CurrentCategory <=0|| Model.CurrentCategory>=9)
+        {
+            classNameOfAllProducts += " active";
+        }
+    }
+    <a href="/product/index"class="@classNameOfAllProducts">All Products</a>
+    @foreach (var category in Model.Category)
+    {
+        string classNameOfCategory = "list-group-item";
+        if (Model.CurrentCategory==category.CategoryId)
+        {
+            classNameOfCategory += " active";
+        }
+        <a href="/product/index?category=@category.CategoryId" class="@classNameOfCategory">@category.CategoryName</a>
+    }
+</div>
